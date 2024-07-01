@@ -35,7 +35,7 @@ function secondLargestEle(elementsArr) {
     let largest = Number.NEGATIVE_INFINITY;
     let secondLargest = Number.NEGATIVE_INFINITY;
 
-    for (let i = 0; i < elementsArr.length; i++) {
+    for (let i = 0; i < elementsArr.length; i++) {       // O(elementsArr.length) => O(n)
         if (elementsArr[i] > largest) {
             secondLargest = largest;
             largest = elementsArr[i];
@@ -46,3 +46,6 @@ function secondLargestEle(elementsArr) {
     return secondLargest;
 }
 console.log(secondLargestEle([10, 20, 50, 10, 45, 78, 98, 100, 100]));
+
+// Time Complexity: O(elementsArr.length) => O(n)
+// Space Complexity: O(1) {because create only one Array}
