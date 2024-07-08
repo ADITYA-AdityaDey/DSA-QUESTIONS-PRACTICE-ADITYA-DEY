@@ -42,16 +42,24 @@ function rotateArray(nums, k) {
         k = k % size;
     }
 
-
-
-
-
+    reverse(nums, 0, nums.length - 1); // it's reverse the whole array [7, 6, 5, 4, 3, 2, 1]        // O(n)
+    reverse(nums, 0, k - 1); // it's reverse upto k time (5, 6, 7) [5, 6, 7, 4, 3, 2, 1]        // O(k)
+    reverse(nums, k, nums.length - 1); // it's now reverse remaining part [5, 6, 7, 1, 2, 3, 4]     // O(n - k)
 
     return nums;
 }
 
 function reverse(nums, left, right) {
-    while (left < right){
-        
+    while (left < right) {
+        const temp = nums[left];
+        nums[left++] = nums[right];
+        nums[right--] = temp;
     }
 }
+
+console.log(rotateArray([1, 2, 3, 4, 5, 6, 7]));
+console.log(rotateArray([-1, -100, 3, 99, 2]));
+
+
+// Time Complexity: O(n)    // remove the constatnt from O(n) + O(k) + O(n - k) and get/choose the linear time complexity O(n)
+// Space Complexity: O(1)   // because i don't create another array just use only one array
